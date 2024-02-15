@@ -1,0 +1,21 @@
+<header>
+    <div class="logotype">
+        <a href="#">
+            <img [src]="logoUrl" alt="Logo de Blexane">
+        </a>
+    </div>
+    <button *ngIf="isLoggedIn()" (click)="logout()" class="logout-button">Logout</button>
+    <nav>
+        <ul>
+            <li class="burger" (click)="toggleMenu()">
+                <i class="material-icons">{{ isMenuOpen ? "Fermer" : "Menu" }}</i>
+            </li>
+            <li class="menu" [class.is-open]="isMenuOpen">
+                <a href="/" class="menu-item">Accueil</a>
+                <a href="/prestations" class="menu-item">Prestations</a>
+                <a *ngIf="isLoggedIn()" href="/prestationsadmin" class="menu-item">Prestations Admin</a>
+                <a *ngIf="!isLoggedIn()" href="/login" class="menu-item">Connexion</a>
+            </li>
+        </ul>
+    </nav>
+</header>

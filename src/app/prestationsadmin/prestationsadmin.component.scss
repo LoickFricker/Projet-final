@@ -1,0 +1,76 @@
+$headline-color: #33272a;
+$button-color: #ff8ba7;
+$button-text-color: #33272a;
+$illustration-stroke-color: #33272a;
+
+h1, h2 {
+    color: $headline-color;
+    font-family: 'Agbalumo', sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+
+    div{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+input,
+textarea {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid $illustration-stroke-color; 
+    border-radius: 5px;
+    width: 300px; 
+}
+
+button[type="submit"] {
+    background-color: $button-color;
+    color: $button-text-color;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: darken($button-color, 10%);
+    }
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0 30px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    button{
+        background-color: $button-color;
+        color: $button-text-color;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    
+        &:hover {
+            background-color: darken($button-color, 10%);
+        }
+    }
+}

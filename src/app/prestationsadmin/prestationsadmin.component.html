@@ -1,0 +1,36 @@
+<div>
+    <h2 class="headline">Ajouter une prestation</h2>
+    <form (submit)="addPrestation()">
+        <div>
+            <label for="title">Titre :</label>
+            <input type="text" id="title" [(ngModel)]="newPrestation.title" name="title" required>
+        </div>
+        <div>
+            <label for="description">Description :</label>
+            <textarea id="description" [(ngModel)]="newPrestation.description" name="description" required></textarea>
+        </div>
+        <div>
+            <label for="price">Prix :</label>
+            <input type="number" id="price" [(ngModel)]="newPrestation.price" name="price" required>
+        </div>
+        <div>
+            <label for="duration">Durée :</label>
+            <input type="number" id="duration" [(ngModel)]="newPrestation.duration" name="duration" required>
+        </div>
+        <div>
+            <label for="image">Durée :</label>
+            <input type="file" id="image" [(ngModel)]="newPrestation.image" name="image"
+                (change)="handleFileInput($event)" required>
+        </div>
+        <button type="submit">Ajouter</button>
+    </form>
+</div>
+<div>
+    <h2 class="headline">Liste des prestations</h2>
+    <ul>
+        <li *ngFor="let prestation of prestations">
+            <span>{{ prestation.title }}</span>
+            <button (click)="deletePrestation(prestation._id)">Supprimer</button>
+        </li>
+    </ul>
+</div>

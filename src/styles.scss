@@ -1,1 +1,111 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
+@font-face {
+    font-family: 'Courgette';
+    src: url('./assets/fonts/Courgette-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Agbalumo';
+    src: url('./assets/fonts/Agbalumo-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$background-color: #faeee7;
+$headline-color: #33272a;
+$paragraph-color: #594a4e;
+$button-color: #ff8ba7;
+$button-text-color: #33272a;
+$illustration-stroke-color: #33272a;
+$main-color: #fffffe;
+$highlight-color: #ff8ba7;
+$secondary-color: #ffc6c7;
+$tertiary-color: #c3f0ca;
+
+html{
+    height: 100%;
+}
+
+body {
+
+    background-color: $background-color;
+    color: $paragraph-color;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height:100%;
+    
+    @media (min-width: 1800px) {
+        width: 1800px;
+        margin: 0 auto;
+    }
+
+}
+
+.container {
+	margin: 0;
+    min-height: 100%;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+}
+
+h1,
+h2,
+h3 {
+    color: $headline-color;
+}
+
+h1{
+    font-size: 2em;
+}
+
+h2{
+    font-size: 1,75em;
+}
+
+h3{
+    font-size: 1,5em;
+}
+
+p {
+    color: $paragraph-color;
+    font-size: 1,125em;
+}
+
+.headline{
+    text-align: center;
+}
+
+.button {
+    background-color: $button-color;
+    color: $button-text-color;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: darken($button-color, 10%);
+    }
+}
+
+// Styles d'illustration
+.illustration {
+    stroke: $illustration-stroke-color;
+}
+
+// Styles spécifiques
+.main-content {
+    background-color: $main-color;
+}
+
+.secondary-content {
+    background-color: $secondary-color;
+}
+
+.tertiary-content {
+    background-color: $tertiary-color;
+}
