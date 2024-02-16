@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const prestationSchema = new mongoose.Schema({
-    title: String,
-    description: String,
-    price: Number,
-    duration: Number,
-    image: Buffer,
+    title: {String, required: true },
+    description: {String, required: true },
+    price: {Number, required: true },
+    duration: {Number, required: true },
+    image: {Buffer, required: true }
 });
 
 module.exports = mongoose.model('Prestation', prestationSchema);
