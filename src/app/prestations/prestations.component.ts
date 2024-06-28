@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PrestationsService } from '../services/prestations.service';
+import { environment } from 'src/environments/environment';
 
 /**
  * Le composant PrestationsComponent gère l'affichage des prestations.
@@ -26,7 +27,7 @@ export class PrestationsComponent implements OnInit {
      */
     getImageUrl(prestationId: string): string {
         // Construisez l'URL en fonction de l'ID de la prestation
-        return `http://localhost:3000/prestations/image/${prestationId}`;
+        return `${environment.apiUrl}/prestations/image/${prestationId}`;
     }
 
     /**

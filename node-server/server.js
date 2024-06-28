@@ -1,31 +1,31 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors')
 const mongoose = require('mongoose');
-const cors = require('cors');
-const prestationsRouter = require('./routes/prestations.routes');
-const usersRouter = require('./routes/users.routes')
+const bodyParser = require('body-parser');
 const app = express();
-const PORT = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 
+// Ajoutez ceci pour vérifier si la variable d'environnement est définie
+if (!process.env.MONGODB_URI) {
+  console.error('Erreur : la variable d\'environnement MONGODB_URI n\'est pas définie.');
+  process.exit(1);
+}
 
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Connexion à MongoDB réussie'))
+  .catch(err => console.error('Erreur de connexion à MongoDB:', err));
+
+app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+  res.send('Hello World!');
 });
 
-const connection = mongoose.connection;
-
-
-connection.once('open', () => {
-    console.log('Connected to MongoDB');
-});
-
-
-app.use('/login', usersRouter);
-app.use('/prestations', prestationsRouter);
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

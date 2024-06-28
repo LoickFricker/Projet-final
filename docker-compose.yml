@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: frontend-container
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - my-network
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: backend-container
+    environment:
+      - PORT=3000
+      - MONGODB_URI=mongodb://mongo:27017/my_database
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+    networks:
+      - my-network
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo-container
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  mongo-data:

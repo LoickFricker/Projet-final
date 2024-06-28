@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 /**
  * Le service PrestationsService gère les opération CRUD (Create, Read, Update, Delete) liées aux prestations.
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class PrestationsService {
-    private apiUrl = 'http://localhost:3000/prestations';
+    private apiUrl = `${environment.apiUrl}/prestations`;
 
     /**
      * Crée une instance du service PrestationsService.
