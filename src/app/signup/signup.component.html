@@ -1,0 +1,21 @@
+<h1 class="headline">Créer un compte</h1>
+
+<form (submit)="signup()">
+  <input type="text" placeholder="Nom d'utilisateur" [(ngModel)]="username" name="username" required>
+
+  <div>
+    <input [type]="showPassword ? 'text' : 'password'" placeholder="Mot de passe" [(ngModel)]="password" name="password" required>
+  </div>
+
+  <div>
+    <input [type]="showPassword ? 'text' : 'password'" placeholder="Confirmer le mot de passe" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+  </div>
+
+  <label>
+    <input type="checkbox" [(ngModel)]="showPassword" name="showPassword">
+    Voir le mot de passe
+  </label>
+
+  <button type="submit">S'inscrire</button>
+  <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+</form>
